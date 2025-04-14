@@ -16,7 +16,8 @@ class OssnSession extends stdClass {
 		 * @return void
 		 */
 		public static function start() {
-				session_start();
+				//session_start();
+				session_start( ['cookie_lifetime' => 604800] ); // 7 days
 		}
 		/**
 		 * Assign value to session

@@ -1,6 +1,10 @@
 #do not push settings files
 /configurations/ossn.config.db.php
 /configurations/ossn.config.site.php
+/.user.ini
+
+# custom themes
+/themes/
 
 #do not include following files
 /components/*
@@ -11,6 +15,7 @@ Thumbs.db
 Desktop.ini
 DISPLAY_ERRORS
 error_log
+*.swp
 
 #do not ignore ossn core components
 !/components/OssnAds
@@ -37,6 +42,7 @@ error_log
 !/components/OssnPostBackground
 !/components/OssnGiphy
 !/components/OssnLocation
+!/themes/goblue
 
 #do not ignore config files
 !/.scrutinizer.yml
