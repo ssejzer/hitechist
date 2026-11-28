@@ -1,3 +1,73 @@
-<HTML>
-	<H1>HITECHIST</H1>
-</HTML>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b10">
+<meta name="description" content="Fly a spacecraft through a true-scale 3D solar system.">
+<title>Helios — Solar System Flight Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="simulator">
+  <div id="viewport" aria-label="First-person spacecraft view"></div>
+  <div class="vignette"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✳</span><div>HELIOS<small>FLIGHT SIMULATOR</small></div></div>
+    <div class="scale"><i></i> TRUE SCALE <span>1 : 1</span></div>
+    <button id="help" class="help"><span>?</span> Controls</button>
+  </header>
+  <aside class="navigation" aria-label="Navigation">
+    <div class="panel-head"><span aria-hidden="true">⊕</span> NAVIGATION</div>
+    <div class="nav-caption">SOLAR SYSTEM</div>
+    <div id="destinations"></div>
+  </aside>
+  <section class="target" aria-label="Selected destination">
+    <div class="target-label"><i></i> <span id="classification">TARGET 06 / GAS GIANT</span></div>
+    <h1 id="target-name">Saturn</h1>
+    <div class="measurements">
+      <div><span>DISTANCE</span><strong id="distance">—</strong></div>
+      <div><span>DIAMETER</span><strong id="diameter">—</strong></div>
+      <div><span>ONE-WAY LIGHT TIME</span><strong id="light-time">—</strong></div>
+    </div>
+  </section>
+  <div class="reticle" aria-hidden="true"><span></span></div>
+  <div class="view-label"><i></i> FORWARD VIEW</div>
+  <section class="flight" aria-label="Flight controls">
+    <div class="flight-top">
+      <div class="speed">
+        <label for="speed">FLIGHT SPEED</label>
+        <div class="speed-line"><input id="speed" type="text" inputmode="decimal" value="0" autocomplete="off" spellcheck="false"><span>km/s</span></div>
+      </div>
+      <div class="throttle">
+        <label for="throttle">THROTTLE <span id="speed-ratio">0.0000 c</span></label>
+        <input id="throttle" type="range" min="-2" max="9" step="0.01" value="-2" aria-label="Logarithmic throttle">
+        <div class="range-notes"><span>SUBLIGHT</span><span>SUPERLUMINAL</span></div>
+      </div>
+      <button id="brake" class="brake action"><span aria-hidden="true">■</span> Brake</button>
+      <button id="warp" class="warp action"><span aria-hidden="true">ϟ</span> Warp to target</button>
+    </div>
+    <p class="speed-error" id="speed-error" role="status"></p>
+  </section>
+  <footer>
+    <div class="status"><i></i> <span id="flight-status">SYSTEMS ONLINE</span></div>
+    <div class="shortcuts"><kbd>DRAG</kbd> Look <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move <kbd>SPACE</kbd> Brake</div>
+    <button id="fullscreen" aria-label="Toggle fullscreen">⛶</button>
+  </footer>
+  <dialog id="controls">
+    <form method="dialog"><button aria-label="Close controls">×</button></form>
+    <h2>Flight controls</h2>
+    <dl>
+      <dt>Drag the viewport</dt><dd>Look around from the ship.</dd>
+      <dt>W A S D / Q E</dt><dd>Move forward, left, back, right, down or up.</dd>
+      <dt>Flight speed</dt><dd>Set forward cruise speed in km/s. Scientific notation is accepted.</dd>
+      <dt>Mouse wheel / + and −</dt><dd>Adjust cruise speed. Space stops the ship.</dd>
+      <dt>Navigation / Warp</dt><dd>Select a body to point the ship toward it. Warp jumps to a nearby vantage point.</dd>
+    </dl>
+    <p>Planet sizes and distances use kilometers throughout. The scene uses fixed positions on circular orbits.</p>
+    <p>Surface maps by <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener">Solar System Scope</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
+  </dialog>
+</main>
+<script type="module" src="flight.js"></script>
+</body>
+</html>
